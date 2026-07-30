@@ -15,11 +15,9 @@ return new class extends Migration
         Schema::create('answers', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Question::class)->constrained()->cascadeOnDelete();
-            $table->char('latter');
+            $table->boolean('is_correct')->default(false);
             $table->string('text');
             $table->boolean('is_active')->default(true);
-            // kolom soft-delete 'deleted_at'
-            $table->softDeletes();
             $table->timestamps();
         });
     }
