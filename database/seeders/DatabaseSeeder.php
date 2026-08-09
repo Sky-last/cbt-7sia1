@@ -18,13 +18,19 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'M. Arifin',
-            'email' => 'skylast@gmail.com',
-            'username' => 'skylast',
-            'is_staff' => true,
-            'password' => Hash::make('skylast123_')
+        User::updateOrCreate(
+            ['email' => 'skylast@gmail.com'],
+            [
+                'name' => 'M. Arifin',
+                'username' => 'skylast',
+                'is_staff' => true,
+                'password' => Hash::make('skylast123_')
+            ]
+        );
 
+        
+        $this->call([
+            SubjectQuestionSeeder::class,
         ]);
     }
 }
