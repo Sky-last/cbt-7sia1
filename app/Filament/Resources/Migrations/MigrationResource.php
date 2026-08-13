@@ -2,7 +2,7 @@
 
 namespace App\Filament\Resources\Migrations;
 
-use App\Filament\Resources\Migrations\Pages\ManageMigrations;
+use App\Filament\Resources\Migrations\Pages\ListMigrations;
 use App\Models\Migration;
 use BackedEnum;
 use Filament\Actions\BulkActionGroup;
@@ -98,7 +98,7 @@ class MigrationResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ManageMigrations::route('/'),
+            'index' => ListMigrations::route('/'),
         ];
     }
 }
