@@ -33,7 +33,7 @@ class SubjectQuestionSeeder extends Seeder
     }
 
     /**
-     * 1. Pelajaran Matematika (150 Soal Real)
+     * 1. Pelajaran Matematika
      */
     private function seedMatematika(): void
     {
@@ -101,7 +101,7 @@ class SubjectQuestionSeeder extends Seeder
             ["Jumlah sudut dalam sebuah segi empat adalah...", "360°", "180°", "540°", "270°"],
         ];
 
-        // Tambahkan soal variasi terstruktur hingga mencapai 150 soal
+
         for ($i = count($soalMatematika) + 1; $i <= 150; $i++) {
             $a = $i + 10;
             $b = $i + 5;
@@ -120,7 +120,7 @@ class SubjectQuestionSeeder extends Seeder
     }
 
     /**
-     * 2. Pelajaran Bahasa Indonesia (150 Soal Real)
+     * 2. Pelajaran Bahasa Indonesia
      */
     private function seedBahasaIndonesia(): void
     {
@@ -157,7 +157,7 @@ class SubjectQuestionSeeder extends Seeder
             ["Penyesuaian dengan ukuran standar secara baku ditulis...", "standardisasi", "standarisasi", "standardisir", "standarisir"],
             ["Rumusan tentang arti atau makna suatu kata dinamakan...", "definisi", "difinisi", "defenisi", "difenisi"],
 
-            // Antonim dan Sinonim (30)
+            // Antonim dan Sinonim
             ["Sinonim dari kata 'efisien' adalah...", "tepat guna", "boros waktu", "lambat", "rumit"],
             ["Antonim dari kata 'kontradiksi' adalah...", "keselarasan", "pertentangan", "perbedaan", "perselisihan"],
             ["Sinonim dari kata 'autentik' adalah...", "asli", "palsu", "tiruan", "duplikat"],
@@ -189,7 +189,7 @@ class SubjectQuestionSeeder extends Seeder
             ["Sinonim kata 'persepsi' adalah...", "pandangan", "kenyataan", "fakta", "benda"],
             ["Antonim kata 'kompleks' adalah...", "sederhana", "rumit", "berbelit", "luas"],
 
-            // Ungkapan & Peribahasa (25)
+            // Ungkapan & Peribahasa
             ["Ungkapan 'gulung tikar' bermakna...", "bangkrut", "pindah rumah", "tidur", "membersihkan lantai"],
             ["Ungkapan 'besar kepala' bermakna...", "sombong", "pandai", "pusing", "pemarah"],
             ["Ungkapan 'panjang tangan' bermakna...", "suka mencuri", "suka menolong", "suka memberi", "rajin bekerja"],
@@ -216,7 +216,7 @@ class SubjectQuestionSeeder extends Seeder
             ["Peribahasa 'Sepandai-pandai membungkus yang busuk, berbau juga' bermakna...", "Kejahatan pasti akan terungkap juga", "Menyimpan barang rusak", "Bau tak sedap", "Kebohongan kecil"],
             ["Peribahasa 'Tak ada gading yang tak retak' bermakna...", "Tidak ada manusia yang sempurna", "Gajah langka", "Barang antik mahal", "Kesalahan kecil"],
 
-            // Majas & Gaya Bahasa (20)
+            // Majas & Gaya Bahasa
             ["Kalimat 'Angin berbisik lembut menyapa dedaunan' menggunakan majas...", "Personifikasi", "Hiperbola", "Metafora", "Litotes"],
             ["Kalimat 'Suaranya yang nyaring menggelegar membelah angkasa' menggunakan majas...", "Hiperbola", "Personifikasi", "Ironi", "Litotes"],
             ["Kalimat 'Singa mimbar itu menyampaikan pidato dengan berapi-api' menggunakan majas...", "Metafora", "Personifikasi", "Simile", "Aliterasi"],
@@ -238,7 +238,7 @@ class SubjectQuestionSeeder extends Seeder
             ["Majas sindiran yang paling kasar dan terang-terangan dinamakan...", "Sarkasme", "Ironi", "Litotes", "Cakapan"],
             ["Majas penegasan dengan mengulang kata pertama pada setiap baris disebut...", "Anafora", "Epifora", "Aliterasi", "Repetisi"],
 
-            // Jenis Teks & Pemahaman Paragraf (50)
+            // Jenis Teks & Pemahaman Paragraf
             ["Teks yang bertujuan memberikan petunjuk atau cara membuat/melakukan sesuatu dinamakan...", "Teks Prosedur", "Teks Eksplanasi", "Teks Narasi", "Teks Deskripsi"],
             ["Bagian penutup dalam struktur teks eksplanasi yang berisi intisari atau kesimpulan dinamakan...", "Interpretasi", "Pernyataan Umum", "Urutan Sebab Akibat", "Orientasi"],
             ["Struktur utama teks laporan hasil observasi (LHO) terdiri atas...", "Pernyataan umum, deskripsi bagian, dan deskripsi manfaat", "Orientasi, komplikasi, resolusi", "Tesis, argumentasi, penegasan ulang", "Tujuan, bahan, langkah-langkah"],
@@ -261,7 +261,7 @@ class SubjectQuestionSeeder extends Seeder
             ["Teks yang memberikan penilaian, kelebihan, dan kekurangan suatu karya sastra/film dinamakan...", "Teks Ulasan / Resensi", "Teks Biografi", "Teks Eksplanasi", "Teks Prosedur"],
         ];
 
-        // Tambahkan soal variasi paragraf hingga genap 150
+
         for ($i = count($soalBahasaIndonesia) + 1; $i <= 150; $i++) {
             $soalBahasaIndonesia[] = [
                 "Manakah yang merupakan fungsi dari tanda baca koma (,) dalam penulisan kalimat nomor {$i}?",
@@ -277,7 +277,7 @@ class SubjectQuestionSeeder extends Seeder
     }
 
     /**
-     * 3. Pelajaran IPA / Ilmu Pengetahuan Alam (150 Soal Real)
+     * 3. Pelajaran IPA / Ilmu Pengetahuan Alam
      */
     private function seedIPA(): void
     {
@@ -288,7 +288,7 @@ class SubjectQuestionSeeder extends Seeder
         ]);
 
         $soalIPA = [
-            // Biologi Sel & Organel (20)
+            // Biologi Sel & Organel
             ["Organel sel yang berfungsi sebagai tempat respirasi sel dan penghasil energi (ATP) adalah...", "Mitokondria", "Kloroplas", "Ribosom", "Lisosom"],
             ["Organel sel tumbuhan yang mengandung klorofil untuk fotosintesis adalah...", "Kloroplas", "Mitokondria", "Vakuola", "Badan Golgi"],
             ["Organel yang berfungsi mengatur seluruh aktivitas sel dan membawa materi genetik adalah...", "Nukleus (Inti Sel)", "Ribosom", "Membran Sel", "Sitoplasma"],
@@ -310,7 +310,7 @@ class SubjectQuestionSeeder extends Seeder
             ["Bagian tumbuhan yang berfungsi sebagai tempat berlangsungnya transpirasi dan fotosintesis utama adalah...", "Daun", "Batang", "Akar", "Bunga"],
             ["Jaringan tumbuhan yang aktif membelah menyebabkan pertumbuhan memanjang dinamakan...", "Jaringan Meristem", "Jaringan Dewasa", "Jaringan Sklerenkim", "Jaringan Collenkim"],
 
-            // Biologi Organ Tubuh & Sistem (30)
+            // Biologi Organ Tubuh & Sistem
             ["Enzim di dalam mulut yang mengubah amilum (karbohidrat) menjadi maltosa/glukosa adalah...", "Ptialin / Amilase", "Pepsin", "Renin", "Tripsin"],
             ["Enzim lambung yang berfungsi memecah protein menjadi pepton adalah...", "Pepsin", "Ptialin", "Lipase", "Amilase"],
             ["Asam lambung (HCl) berfungsi untuk...", "Membunuh kuman penyakit dan mengaktifkan pepsinogen", "Menguraikan lemak", "Menyerap air", "Menggumpalkan susu"],
@@ -342,7 +342,7 @@ class SubjectQuestionSeeder extends Seeder
             ["Tekanan darah tinggi di atas normal dinamakan...", "Hipertensi", "Hipotensi", "Aterosklerosis", "Stroke"],
             ["Sendi yang terdapat antara tulang leher pertama dan tulang tengkorak adalah...", "Sendi Putar", "Sendi Engsel", "Sendi Peluru", "Sendi Pelana"],
 
-            // Ekosistem, Genetika & Fisika Dasar (100)
+            // Ekosistem, Genetika & Fisika Dasar
             ["Proses pembuatan makanan pada tumbuhan hijau dengan bantuan cahaya matahari dinamakan...", "Fotosintesis", "Respirasi", "Transpirasi", "Gutasi"],
             ["Bahan utama yang dibutuhkan tumbuhan dalam fotosintesis adalah...", "Karbondioksida dan Air", "Oksigen dan Glukosa", "Nitrogen dan Air", "Oksigen dan Karbon"],
             ["Gas hasil fotosintesis yang dilepaskan ke udara dan dibutuhkan hewan adalah...", "Oksigen (O2)", "Karbondioksida (CO2)", "Nitrogen (N2)", "Metana (CH4)"],
@@ -395,7 +395,7 @@ class SubjectQuestionSeeder extends Seeder
             ["Tekanan zat cair yang disebabkan oleh berat zat cair itu sendiri dinamakan...", "Tekanan Hidrostatis", "Tekanan Udara", "Tekanan Osmosis", "Tekanan Gas"],
         ];
 
-        // Tambahkan variasi hingga genap 150
+        // Tambahkan variasi hingga genap
         for ($i = count($soalIPA) + 1; $i <= 150; $i++) {
             $soalIPA[] = [
                 "Zat pencemar lingkungan nomor {$i} yang dapat merusak lapisan ozon (CFC) adalah...", "Klorofluorokarbon (CFC)", "Karbondioksida (CO2)", "Oksigen (O2)", "Nitrogen (N2)"]
@@ -407,14 +407,14 @@ class SubjectQuestionSeeder extends Seeder
     }
 
     /**
-     * Helper menyimpan Question dan Answer menggunakan Factory
+     *
      */
     private function simpanSoalDanJawaban(int $subjectId, array $daftarSoal): void
     {
         $optionsList = ['A', 'B', 'C', 'D'];
 
         foreach ($daftarSoal as $item) {
-            // Pilihan jawaban: index 1 adalah Jawaban Benar, index 2-4 adalah Jawaban Salah
+            // 
             $pilihan = [
                 ['text' => $item[1], 'is_correct' => true],
                 ['text' => $item[2], 'is_correct' => false],

@@ -42,7 +42,7 @@ class SubjectResource extends Resource
 
     protected static ?string $modelLabel = 'Pelajaran';
 
-    protected static ?string $navigationLabel = 'Data';
+    protected static ?string $navigationLabel = 'Data pelajaran';
 
 
     public static function form(Schema $schema): Schema
