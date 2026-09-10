@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Exam extends Model
 {
@@ -17,9 +18,16 @@ class Exam extends Model
         'is_available' => 'boolean'
     ];
 
+    // relasi 1 to many dengan table question
+    public function questions(): HasMany
+    {
+        return $this->hasMany(Question::class);
+    }
+
     // relasi many to many
     public function subjects():BelongsToMany
     {
         return $this->belongsToMany(Subject::class);
     }
+
 }

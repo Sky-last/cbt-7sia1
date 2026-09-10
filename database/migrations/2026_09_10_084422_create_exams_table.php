@@ -20,6 +20,7 @@ return new class extends Migration
             $table->dateTime('expired_at')->nullable();
             $table->boolean('exact_time')->default(true);
             $table->boolean('is_available')->default(true);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
