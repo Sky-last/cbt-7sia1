@@ -24,17 +24,18 @@ class ExamForm
                     ->required()
                     ->numeric()
                     ->default(50.0),
+                Toggle::make('exact_time')
+                    ->live()
+                    ->required(),
                 DateTimePicker::make('started_at')
                     ->required(),
                 DateTimePicker::make('expired_at')
                     ->seconds(false)
-                    ->native()
-                    ->displayFormat('d F Y , H:i')
-                    ->hidden(fn (Get $get): bool=>
-                        $get('exact_time')),
-                Toggle::make('exact_time')
-                    ->live()
-                    ->required(),
+                    ->native(false)
+                    ->displayFormat('d F Y, H:i')
+                    ->hidden(fn (Get $get): bool =>
+                        $get('exact_time')
+                    ),
                 Toggle::make('is_available')
                     ->required()
                     ->default(true),

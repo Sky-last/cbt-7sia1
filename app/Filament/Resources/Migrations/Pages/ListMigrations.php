@@ -8,4 +8,6 @@ use Filament\Resources\Pages\ListRecords;
 class ListMigrations extends ListRecords
 {
     protected static string $resource = MigrationResource::class;
+
+    protected static ?string $title = 'Migrasi Database';
 }

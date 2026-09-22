@@ -27,13 +27,16 @@ class MigrationResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'migration';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Basis data';
+    // Tidak menggunakan navigationGroup, sehingga muncul di root menu
+    protected static string|UnitEnum|null $navigationGroup = null;
 
     protected static ?string $modelLabel = 'Migrasi';
 
     protected static ?string $pluralModelLabel = 'Data Migrasi';
 
     protected static ?string $navigationLabel = 'Migrasi';
+
+    protected static ?int $navigationSort = 99;
 
     public static function form(Schema $schema): Schema
     {

@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources\Exams\Schemas;
 
-use App\Models\Exam;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Schema;
@@ -18,18 +17,15 @@ class ExamInfolist
                     ->numeric(),
                 TextEntry::make('threshold')
                     ->numeric(),
+                IconEntry::make('exact_time')
+                    ->boolean(),
                 TextEntry::make('started_at')
                     ->dateTime(),
                 TextEntry::make('expired_at')
                     ->dateTime()
                     ->placeholder('-'),
-                IconEntry::make('exact_time')
-                    ->boolean(),
                 IconEntry::make('is_available')
                     ->boolean(),
-                TextEntry::make('deleted_at')
-                    ->dateTime()
-                    ->visible(fn (Exam $record): bool => $record->trashed()),
                 TextEntry::make('created_at')
                     ->dateTime()
                     ->placeholder('-'),
