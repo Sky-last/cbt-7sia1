@@ -9,3 +9,4 @@ class CreateExam extends CreateRecord
 {
     protected static string $resource = ExamResource::class;
 }
+

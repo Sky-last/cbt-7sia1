@@ -24,20 +24,16 @@ class ExamsTable
                 TextColumn::make('threshold')
                     ->numeric()
                     ->sortable(),
+                IconColumn::make('exact_time')
+                    ->boolean(),
                 TextColumn::make('started_at')
                     ->dateTime()
                     ->sortable(),
                 TextColumn::make('expired_at')
                     ->dateTime()
                     ->sortable(),
-                IconColumn::make('exact_time')
-                    ->boolean(),
                 IconColumn::make('is_available')
                     ->boolean(),
-                TextColumn::make('deleted_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

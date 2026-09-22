@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Exam extends Model
 {
@@ -12,22 +11,16 @@ class Exam extends Model
 
     protected $casts = [
         'threshold' => 'decimal:2',
-        'started_at' => 'datetime',
-        'expired_at' => 'datetime',
-        'exact_time' => 'boolean',
-        'is_available' => 'boolean'
+        'started_at'=> 'datetime',
+        'expired_at'=> 'datetime',
+        'exact_time'=> 'boolean',
+        'is_available'=> 'boolean',
     ];
 
-    // relasi 1 to many dengan table question
-    public function questions(): HasMany
+    // relasi many - to - many dengan model Subject
+    public function subjects(): BelongsToMany
     {
-        return $this->hasMany(Question::class);
+        return $this->belongsToMany(Subject::class)
+            ->withPivot('qty');
     }
-
-    // relasi many to many
-    public function subjects():BelongsToMany
-    {
-        return $this->belongsToMany(Subject::class);
-    }
-
 }

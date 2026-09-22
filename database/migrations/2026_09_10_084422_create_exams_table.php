@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**\
+    /**
      * Run the migrations.
      */
     public function up(): void
@@ -16,11 +16,10 @@ return new class extends Migration
             $table->string('title')->unique();
             $table->integer('duration');
             $table->decimal('threshold', 5, 2)->default(50);
+            $table->boolean('exact_time')->default(true);
             $table->dateTime('started_at');
             $table->dateTime('expired_at')->nullable();
-            $table->boolean('exact_time')->default(true);
             $table->boolean('is_available')->default(true);
-            $table->softDeletes();
             $table->timestamps();
         });
     }
