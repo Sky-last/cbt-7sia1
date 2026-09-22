@@ -3,6 +3,7 @@
 namespace App\Filament\Test\Resources\Exams;
 
 use App\Filament\Test\Resources\Exams\Pages\ManageExams;
+use App\Filament\Test\Resources\Exams\Pages\StartingExam;
 use App\Models\Exam;
 use BackedEnum;
 use Filament\Actions\Action;
@@ -36,20 +37,22 @@ class ExamResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->modifyQueryUsing(function (Builder $query){
+            ->modifyQueryUsing(function (Builder $query) {
                 $now = now();
                 $query
                     ->where('is_available', true)
-                    ->where(function (Builder $query) use ($now){
+                    ->where(function (Builder $query) use ($now) {
                         $query
-                            ->where(fn (Builder $query) => $query
-                                    ->where('exact_time', true)
-                                    ->where('started_at', '>=', $now)
-                                    ->whereRaw('DATE_ADD(started_at, INTERVAL duration MINUTE) >= ?',[$now]
-                                    ))
-                            ->orWhere(fn (Builder $query)=> $query
-                                    ->whereNotNull('expired_at')
-                                    ->where('expired_at', '>=', $now));
+                            ->where(fn(Builder $query) => $query
+                                ->where('exact_time', true)
+                                ->where('started_at', '>=', $now)
+                                ->whereRaw(
+                                    'DATE_ADD(started_at, INTERVAL duration MINUTE) >= ?',
+                                    [$now]
+                                ))
+                            ->orWhere(fn(Builder $query) => $query
+                                ->whereNotNull('expired_at')
+                                ->where('expired_at', '>=', $now));
                     });
             })
             ->recordTitleAttribute('title')
@@ -76,8 +79,10 @@ class ExamResource extends Resource
                     ->icon(Heroicon::OutlinedPaperAirplane)
                     ->color('primary')
                     ->button()
-                    ->disabled(fn ($record) => $record->started_at >= now()
-                    ),
+                    ->disabled(
+                        fn($record) => $record->started_at >= now()
+                    )
+                    ->url(fn($record) => route(StartingExam::getRouteName(), ['exam' => $record],))
             ]);
     }
 
@@ -85,6 +90,7 @@ class ExamResource extends Resource
     {
         return [
             'index' => ManageExams::route('/'),
+            'mulai' => StartingExam::route('/{exam}/mulai')
         ];
     }
 }
