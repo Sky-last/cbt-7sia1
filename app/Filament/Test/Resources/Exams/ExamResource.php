@@ -43,16 +43,24 @@ class ExamResource extends Resource
                     ->where('is_available', true)
                     ->where(function (Builder $query) use ($now) {
                         $query
-                            ->where(fn(Builder $query) => $query
+                            // exact_time = true: ujian yang sudah mulai (started_at <= now)
+                            // dan belum habis durasinya (started_at + duration >= now)
+                            ->where(fn(Builder $q) => $q
                                 ->where('exact_time', true)
-                                ->where('started_at', '>=', $now)
+                                ->where('started_at', '<=', $now)
                                 ->whereRaw(
                                     'DATE_ADD(started_at, INTERVAL duration MINUTE) >= ?',
                                     [$now]
                                 ))
-                            ->orWhere(fn(Builder $query) => $query
+                            // exact_time = false dengan expired_at: belum melewati expired_at
+                            ->orWhere(fn(Builder $q) => $q
+                                ->where('exact_time', false)
                                 ->whereNotNull('expired_at')
-                                ->where('expired_at', '>=', $now));
+                                ->where('expired_at', '>=', $now))
+                            // exact_time = false tanpa expired_at: selalu tampil
+                            ->orWhere(fn(Builder $q) => $q
+                                ->where('exact_time', false)
+                                ->whereNull('expired_at'));
                     });
             })
             ->recordTitleAttribute('title')

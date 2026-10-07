@@ -27,4 +27,14 @@ class Question extends Model
     {
         return $this->hasMany(Answer::class);
     }
+
+    public function answers(): HasMany
+    {
+        return $this->hasMany(Answer::class);
+    }
+
+    public function correctAnswer(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Answer::class)->where('is_correct', true);
+    }
 }
