@@ -1,58 +1,195 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<h1>🖥️ CBT-SIA</h1>
+<p><strong>Computer Based Test — Sistem Informasi Akademik</strong></p>
+
+<p>
+  <img src="https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
+  <img src="https://img.shields.io/badge/Filament-3.x-FFA500?style=for-the-badge&logo=filament&logoColor=white" alt="Filament">
+  <img src="https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white" alt="PHP">
+  <img src="https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
 </p>
 
-## About Laravel
+<p>Platform ujian online berbasis web untuk sekolah, dibangun dengan Laravel & Filament.</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+</div>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📋 Tentang Proyek
 
-## Learning Laravel
+**CBT-SIA** adalah sistem ujian berbasis komputer (Computer Based Test) yang dirancang untuk mempermudah pelaksanaan ujian secara digital di lingkungan sekolah. Sistem ini memiliki dua panel utama:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **Panel Admin** (`/admin`) — untuk pengelolaan data oleh guru/staf
+- **Panel Siswa** (`/Ujian`) — untuk siswa mengikuti ujian
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## ✨ Fitur Utama
 
-## Agentic Development
+### 👨‍💼 Panel Admin
+- Manajemen **Siswa**, **Guru**, **Mata Pelajaran**, dan **Kelas**
+- Manajemen **Bank Soal** dengan pilihan ganda dan kunci jawaban
+- Pembuatan **Sesi Ujian** dengan konfigurasi waktu, durasi, dan passing grade
+- Dukungan mode **Exact Time** (waktu tepat) dan **Flexible** (batas expired)
+- Rekap dan laporan **Hasil Ujian** seluruh siswa
+- Analisis histori nilai per mata pelajaran
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 👨‍🎓 Panel Siswa
+- Dashboard ujian yang menampilkan **sesi aktif** secara real-time
+- Antarmuka pengerjaan soal yang bersih dan fokus
+- Timer ujian otomatis sesuai durasi yang ditetapkan
+- Rekap **histori ujian** lengkap dengan skor dan status kelulusan
+- Histori nilai per **mata pelajaran**
+
+---
+
+## 🏗️ Teknologi
+
+| Komponen | Teknologi |
+|---|---|
+| Backend Framework | Laravel 12.x |
+| Admin Panel | Filament 3.x |
+| Database | MySQL |
+| Frontend | Blade + Tailwind CSS |
+| Server | PHP 8.2+ |
+
+---
+
+## ⚙️ Instalasi
+
+### Prasyarat
+- PHP >= 8.2
+- Composer
+- MySQL
+- Node.js & NPM
+
+### Langkah Instalasi
 
 ```bash
-composer require laravel/boost --dev
+# 1. Clone repository
+git clone <repository-url> cbt-sia1
+cd cbt-sia1
 
-php artisan boost:install
+# 2. Install dependencies PHP
+composer install
+
+# 3. Install dependencies Node
+npm install
+
+# 4. Salin file environment
+cp .env.example .env
+
+# 5. Generate application key
+php artisan key:generate
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### Konfigurasi Database
 
-## Contributing
+Edit file `.env` dan sesuaikan konfigurasi database:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=cbt_sia
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Code of Conduct
+### Setup Database & Data Awal
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+# Jalankan migrasi dan seeder
+php artisan migrate --seed
 
-## Security Vulnerabilities
+# Build aset frontend
+npm run build
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Jalankan Aplikasi
 
-## License
+```bash
+php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Akses aplikasi di `http://localhost:8000`
+
+---
+
+## 🗂️ Struktur Panel
+
+### Admin Panel — `/admin`
+Login sebagai administrator/guru untuk mengelola seluruh data akademik dan ujian.
+
+### Siswa Panel — `/Ujian`
+Login sebagai siswa untuk melihat sesi ujian aktif dan mengikuti ujian.
+
+---
+
+## 📊 Alur Ujian
+
+```
+Admin buat sesi ujian
+        ↓
+Siswa login → Dashboard ujian
+        ↓
+Siswa klik "Mulai" → Halaman pengerjaan soal
+        ↓
+Jawab soal → Submit ujian
+        ↓
+Sistem kalkulasi skor → Simpan hasil
+        ↓
+Siswa lihat rekap & histori nilai
+```
+
+---
+
+## 🔒 Aturan Tampil Sesi Ujian
+
+Sesi ujian hanya ditampilkan di dashboard siswa apabila memenuhi kondisi berikut:
+
+| Mode | Kondisi Tampil |
+|---|---|
+| **Exact Time** | Sudah melewati `started_at` dan belum habis durasi |
+| **Flexible** + ada `expired_at` | Belum melewati tanggal `expired_at` |
+| **Flexible** + tanpa `expired_at` | Selalu tampil (tidak ada batas waktu) |
+
+---
+
+## 📁 Struktur Direktori Penting
+
+```
+app/
+├── Filament/
+│   ├── Resources/          # Admin panel resources
+│   │   ├── ExamResource
+│   │   ├── StudentResource
+│   │   ├── SubjectResource
+│   │   └── ...
+│   └── Test/               # Student panel resources
+│       ├── Resources/
+│       │   ├── ExamResource
+│       │   └── ExamHistoryResource
+│       └── Pages/
+│           └── StudentSubjectHistory
+├── Models/
+│   ├── Exam.php
+│   ├── Student.php
+│   ├── Subject.php
+│   ├── Question.php
+│   ├── ExamResult.php
+│   └── ExamResultDetail.php
+database/
+├── migrations/
+└── seeders/
+resources/
+└── views/filament/
+```
+
+---
+
+## 📄 Lisensi
+
+Proyek ini dikembangkan untuk keperluan akademik.
+
